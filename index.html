@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi Configuration</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="network-config-form-container">
+        <form id="network-config-form">
+            <h1>Wi-Fi Configuration</h1>
+
+            <div class="form-section">
+                <label for="auth-type">Authentication Type:</label>
+                <select id="auth-type" name="auth-type" onchange="toggleFields()">
+                    <option value="WPA2-Personal">WPA2-Personal</option>
+                    <option value="WPA2-Enterprise">WPA2-Enterprise</option>
+                </select>
+            </div>
+
+            <div id="personal-fields" class="form-section">
+                <label for="wifi-ssid">WiFi SSID:</label>
+                <input type="text" id="wifi-ssid" name="wifi-ssid" required>
+
+                <label for="wifi-password">WiFi Password:</label>
+                <input type="password" id="wifi-password" name="wifi-password">
+
+                <div class="checkbox-label">
+                    <input type="checkbox" id="show-wifi-password" onclick="togglePasswordVisibility('wifi-password')"> Show Password
+                </div>
+            </div>
+
+            <div id="enterprise-fields" class="form-section" style="display: none;">
+                <label for="enterprise-ssid">WiFi SSID:</label>
+                <input type="text" id="enterprise-ssid" name="enterprise-ssid" required>
+
+                <label for="eap-username">Username:</label>
+                <input type="text" id="eap-username" name="eap-username">
+
+                <label for="eap-password">Password:</label>
+                <input type="password" id="eap-password" name="eap-password">
+
+                <div class="checkbox-label">
+                    <input type="checkbox" id="show-eap-password" onclick="togglePasswordVisibility('eap-password')"> Show Password
+                </div>
+            </div>
+
+            <button type="button" class="save-config-button" onclick="saveConfig()">Update Config</button>
+        </form>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
